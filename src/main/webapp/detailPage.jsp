@@ -23,17 +23,12 @@
 	
 	<!-- 상품 이미지 슬라이더 -->
 	<div class="container">
-		<c:forEach var="i" begin ="1" end="${io.size()}">
-			
-				<div class="mySlides">
-					<div class="numbertext">${i} / ${io.size()}</div>
-					<img src="./images/img${i}.jpg" style="width: 100%; height: 400px">
-					<img src ="E:/uploadImage/img1.jpg">
-					
-				</div>
-		
-		</c:forEach>
-<!-- 
+		<div class="mySlides">
+			<div class="numbertext"> 1/6</div>
+			<img src="./images/img1.jpg" style="width: 100%; height: 400px">
+		</div>
+	
+
 		<div class="mySlides">
 			<div class="numbertext">2 / 6</div>
 			<img src="./images/img2.jpg" style="width: 100%; height: 400px">
@@ -58,7 +53,7 @@
 			<div class="numbertext">6 / 6</div>
 			<img src="./images/img6.jpg" style="width: 100%; height: 400px">
 		</div>
- -->
+
 		<a class="prev" onclick="plusSlides(-1)"><img alt="���댄��" src="./images/l_arrow.png" width="20"></a> 
 		<a class="next" onclick="plusSlides(1)"><img alt="���댄��" src="./images/r_arrow.png" width="20"></a>
 		

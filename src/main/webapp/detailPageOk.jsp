@@ -27,7 +27,7 @@
 	ArrayList<PostimageVO> images = PostImageService.getInstance().selectByImages(postnum);
 	//out.println( request.ContextPath());
 	//out.println(images.size());
-	//sout.println(images);
+	//out.println(images.postnum);
 	
 	
 	for(PostimageVO image : images) {
@@ -37,7 +37,7 @@
 	PosttblVO vo = DetailService.getInstance().selectByContent(postnum);
 	// out.println(vo);
 	request.setAttribute("vo", vo);
-	request.setAttribute("io", images);
+	request.setAttribute("image", images);
 	pageContext.forward("detailPage.jsp");
 %>
 
