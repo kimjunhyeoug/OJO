@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class DBTest {
 
-	public Connection getConnection() {
+	public static Connection getConnection() {
 		Connection con = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@ojo_high?TNS_ADMIN=C:/Users/jack0/eclipse-workspace/OJO/src/main/java/com/ojo/mybatis/Wallet_OJO";
+			String url = "jdbc:oracle:thin:@OJO_medium?TNS_ADMIN=E:/07.Team/OJO_Team/Wallet_OJO";
 			String user = "ADMIN";
 			String password = "Ojo123456789";
 			con = DriverManager.getConnection(url, user, password);
@@ -23,5 +23,11 @@ public class DBTest {
 		}
 		return con;
 
+	}
+	public static void main(String[] args) {
+		DBTest dbTest = new DBTest();
+		dbTest.getConnection();
+		
+				
 	}
 }

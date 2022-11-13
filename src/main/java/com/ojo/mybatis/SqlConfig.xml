@@ -8,7 +8,9 @@
 	
 	<typeAliases>
 		<!-- 별명 설정 -->
-		<typeAlias type="com.ojo.vo" alias="vo" />
+		<typeAlias type="com.ojo.vo.UsertblVO" alias="vo" />
+		<typeAlias type="com.ojo.vo.PosttblVO" alias="po" />
+		<typeAlias type="com.ojo.vo.PostimageVO" alias="io" />
 	</typeAliases>
 	
 	<environments default="development">

@@ -2,8 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ojo.vo.PosttblVO">
 
-
-	
+	<!-- 상품 상세 설명 얻어오기 -->
+	<select id="selectByContent" parameterType="int" resultType="po">
+		select * from posttbl where postnum = #{postnum}
+	</select>
 
 	
 </mapper>
