@@ -22,14 +22,17 @@
 	<!-- <h2 style="text-align: center">상품 상세 이미지</h2> -->
 	
 	<!-- 상품 이미지 슬라이더 -->
-	
-	<%-- <c:forEach var="i" begin ="1" end="${image.size()}"> --%>
-		<div class="container">
-			<div class="mySlides">
-				<div class="numbertext">${i} / ${image.size()}</div>
-				<img src="E:/uploadImage/img1.jpg" style="width: 100%; height: 400px">
-			</div>
-	<%-- </c:forEach> --%>
+	<div class="container">
+		<c:forEach var="i" begin ="1" end="${io.size()}">
+			
+				<div class="mySlides">
+					<div class="numbertext">${i} / ${io.size()}</div>
+					<img src="./images/img${i}.jpg" style="width: 100%; height: 400px">
+					<img src ="E:/uploadImage/img1.jpg">
+					
+				</div>
+		
+		</c:forEach>
 <!-- 
 		<div class="mySlides">
 			<div class="numbertext">2 / 6</div>

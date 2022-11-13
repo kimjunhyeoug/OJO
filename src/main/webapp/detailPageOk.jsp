@@ -1,3 +1,5 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="java.io.File"%>
 <%@page import="com.ojo.service.PostImageService"%>
 <%@page import="com.ojo.vo.PostimageVO"%>
 <%@page import="com.ojo.dao.PostImageDAO"%>
@@ -16,29 +18,26 @@
 	request.setCharacterEncoding("UTF-8");
 
 	String uploadDirectory = application.getRealPath("E:/uploadImage");
-	String[] files = new File(uploadDirectory).list();
+	//String[] files = new File(uploadDirectory).list();
+	//out.println(Arrays.toString(files));
 	
 	//int postnum = Integer.parseInt(request.getParameter("postnum"));
 	int postnum = 1;
 	
 	ArrayList<PostimageVO> images = PostImageService.getInstance().selectByImages(postnum);
+	//out.println( request.ContextPath());
 	//out.println(images.size());
-	//out.println(images);
+	//sout.println(images);
+	
 	
 	for(PostimageVO image : images) {
 		
 	}
-%>
-<%-- 
-	<jsp:useBean id="vo" class="com.ojo.vo.PosttblVO">
-		<jsp:setProperty property="*" name ="vo"/>
-	</jsp:useBean>
-	 --%>
-<%
+
 	PosttblVO vo = DetailService.getInstance().selectByContent(postnum);
 	// out.println(vo);
 	request.setAttribute("vo", vo);
-	request.setAttribute("image", images);
+	request.setAttribute("io", images);
 	pageContext.forward("detailPage.jsp");
 %>
 
