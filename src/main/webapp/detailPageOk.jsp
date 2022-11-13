@@ -17,7 +17,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	String uploadDirectory = application.getRealPath("E:/uploadImage");
+	String uploadDirectory = application.getRealPath("E:/uploadImage/");
 	//String[] files = new File(uploadDirectory).list();
 	//out.println(Arrays.toString(files));
 	
@@ -25,19 +25,27 @@
 	int postnum = 1;
 	
 	ArrayList<PostimageVO> images = PostImageService.getInstance().selectByImages(postnum);
-	//out.println( request.ContextPath());
+	//out.println(request.ContextPath());
 	//out.println(images.size());
-	//out.println(images.postnum);
-	
-	
-	for(PostimageVO image : images) {
+	//out.println(images);
+    	
+	/* for(PostimageVO image : images) {
+		out.println(image.getFilename());
+		out.println(image.getFilerealname());
 		
-	}
-
+	} */
+	
+	String[] files = new File("./images").list();
+	/* for (int i=0; i<files.length; i++) {
+		out.println(i + 1 + ". " + files[i] + "<br/>");
+	} */
+	
+	
 	PosttblVO vo = DetailService.getInstance().selectByContent(postnum);
 	// out.println(vo);
 	request.setAttribute("vo", vo);
-	request.setAttribute("image", images);
+	request.setAttribute("files", files);
+	request.setAttribute("images", images);
 	pageContext.forward("detailPage.jsp");
 %>
 

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 <script type="text/javascript" src="./js/detailPage.js" defer="defer"></script>
@@ -23,12 +23,15 @@
 	
 	<!-- 상품 이미지 슬라이더 -->
 	<div class="container">
-		<div class="mySlides">
-			<div class="numbertext"> 1/6</div>
-			<img src="./images/img1.jpg" style="width: 100%; height: 400px">
-		</div>
+		<c:forEach var="image" items="${images}">
+			<div class="mySlides">
+				<%-- <div class="numbertext">/${images.size()}</div> --%>
+				<img src="./uploadImage/${image.filename}" style="width: 100%; height: 400px">
+			</div>
+		
+		</c:forEach>
 	
-
+<!-- 
 		<div class="mySlides">
 			<div class="numbertext">2 / 6</div>
 			<img src="./images/img2.jpg" style="width: 100%; height: 400px">
@@ -53,10 +56,10 @@
 			<div class="numbertext">6 / 6</div>
 			<img src="./images/img6.jpg" style="width: 100%; height: 400px">
 		</div>
+		 -->
 
-		<a class="prev" onclick="plusSlides(-1)"><img alt="���댄��" src="./images/l_arrow.png" width="20"></a> 
-		<a class="next" onclick="plusSlides(1)"><img alt="���댄��" src="./images/r_arrow.png" width="20"></a>
-		
+		<a class="prev" onclick="plusSlides(-1)"><img alt="" src="./images/l_arrow.png" width="20"></a> 
+		<a class="next" onclick="plusSlides(1)"><img alt="" src="./images/r_arrow.png" width="20"></a>
 		
 		<div class="caption-container">
 			<p id="caption"></p>
@@ -64,10 +67,13 @@
  		
  		상품 이미지 썸네일
 		<div class="row">
-			<div class="column">
-				<img class="demo cursor" src="./images/img1.jpg" style="width: 100%; height: 66px;"
-					onclick="currentSlide(1)" alt="The Woods">
-			</div>
+			<c:forEach var="image" items="${images}">
+				<div class="column">
+					<img class="demo cursor" src="./images/${image.filename}" style="width: 100%; height: 66px;"
+						onclick="currentSlide(1)" alt="The Woods">
+				</div>
+			</c:forEach>
+			<!-- 
 			<div class="column">
 				<img class="demo cursor" src="./images/img2.jpg" style="width: 100%; height: 66px;"
 					onclick="currentSlide(2)" alt="Cinque Terre">
@@ -87,7 +93,7 @@
 			<div class="column">
 				<img class="demo cursor" src="./images/img6.jpg" style="width: 100%; height: 66px;"
 					onclick="currentSlide(6)" alt="Snowy Mountains">
-			</div>
+			</div> -->
 		</div>
 	</div>
 	

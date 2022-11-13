@@ -3,8 +3,12 @@
 <mapper namespace="com.ojo.vo.PostimageVO">
 <select id="selectByImages" parameterType="int" resultType="io">
 	select * from postimage where postnum=#{postnum}
-
 </select>
+
+<insert id="insert" parameterType="io">
+	
+
+</insert>
 
 
 	

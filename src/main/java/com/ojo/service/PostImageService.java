@@ -29,5 +29,15 @@ public class PostImageService {
 		return list;
 	}
 	
+	public void insert(PostimageVO vo) {
+		System.out.println("PostimageSErvice클래스 insert()메소드");
+		SqlSession mapper = MySession.getSession();
+		
+		PostImageDAO.getInstance().insert(mapper,vo);
+		
+		mapper.commit();
+		mapper.close();
+		
+	}
 
 }

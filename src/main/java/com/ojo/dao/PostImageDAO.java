@@ -22,4 +22,11 @@ public class PostImageDAO {
 		return (ArrayList<PostimageVO>) mapper.selectList("selectByImages", postnum);
 	}
 
+	public void insert(SqlSession mapper, PostimageVO vo) {
+		System.out.println("PostimageDAO클래스 insert()메소드");
+		
+		mapper.insert("insert", vo);
+		
+	}
+
 }
