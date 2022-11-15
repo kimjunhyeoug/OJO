@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +20,9 @@
 	<div class="table">
 	
 		<form action="prodcutUploadOk.jsp" method="post" enctype="multipart/form-data">
-			<table border="1" cellpadding="5" cellspacing="0" width="500px">
+			<table border="1" cellpadding="5" cellspacing="0" width="600px">
 				<tr>
-					<td align="center" width="100px">
+					<td align="center" width="80px">
 						상품명
 					</td>
 					<td colspan="3">
@@ -27,28 +30,34 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="center">구</td>
-					<td width="150px">
-						<select name="postgu">
+					<td align="center">주소</td>
+					<td align="center" width="200px">
+						<select name="postgu" style="width: 90px">
 							<option>종로구</option>
 							<option>중구</option>
 							<option>동대문구</option>
 							<option>서대문구</option>
 						</select>
-					</td>
-					<td align="center" width="100px">동</td>
-					<td width="150px">
-						<select name="postdong">
+						<select name="postdong" style="width: 90px">
 							<option>관철동</option>
 							<option>익산동</option>
 							<option>명동</option>
 							<option>필동</option>
 						</select>
 					</td>
+					<td align="center" width="80px"> 카테고리</td>
+					<td align="center">
+						<select name="category" style="width: 95%">
+							<c:forEach var="categoryList" items="${category}">
+								<option>${categoryList.category}</option>
+							</c:forEach>
+							${categoryList.category}
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td align="center">가격</td>
-					<td>
+					<td align="center">
 						<input type="text" name="price" />
 					</td>
 					<td align="center">거래완료</td>

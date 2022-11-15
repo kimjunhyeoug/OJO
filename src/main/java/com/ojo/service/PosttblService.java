@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.ojo.dao.PosttblDAO;
 import com.ojo.mybatis.MySession;
+import com.ojo.vo.CategoryVO;
 import com.ojo.vo.PostimageVO;
 import com.ojo.vo.PosttblVO;
 
@@ -24,8 +25,10 @@ public class PosttblService {
 		SqlSession mapper = MySession.getSession();
 		
 		ArrayList<PostimageVO> list = PosttblDAO.getInstance().selectByImages(mapper, postnum);
-		
+			
 		mapper.close();
+		System.out.println(list);
+		
 		
 		return list;
 	}
@@ -50,6 +53,17 @@ public class PosttblService {
 		mapper.commit();
 		mapper.close();
 		
+	}
+	
+	public ArrayList<CategoryVO> selectByCategory() {
+		System.out.println("PosttblService클래스 selectByCategory()메소드");
+		SqlSession mapper = MySession.getSession();
+		ArrayList<CategoryVO> list = PosttblDAO.getInstance().selectByCategory(mapper);
+		
+		mapper.close();
+		System.out.println(list);
+		
+		return list;
 	}
 
 }

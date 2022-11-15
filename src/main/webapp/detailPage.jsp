@@ -26,7 +26,7 @@
 		<c:forEach var="image" items="${images}">
 			<div class="mySlides">
 				<%-- <div class="numbertext">/${images.size()}</div> --%>
-				<img src="./uploadImage/${image.filename}" style="width: 100%; height: 400px">
+				<img src="./uploadImages/${image.filename}" style="width: 100%; height: 400px">
 			</div>
 		
 		</c:forEach>
@@ -69,7 +69,7 @@
 		<div class="row">
 			<c:forEach var="image" items="${images}">
 				<div class="column">
-					<img class="demo cursor" src="./images/${image.filename}" style="width: 100%; height: 66px;"
+					<img class="demo cursor" src="./uploadImages/${image.filename}" style="width: 100%; height: 66px;"
 						onclick="currentSlide(1)" alt="The Woods">
 				</div>
 			</c:forEach>

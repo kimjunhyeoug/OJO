@@ -21,12 +21,13 @@ request.setCharacterEncoding("UTF-8");
 	// String[] files = new File(uploadDirectory).list();
 	// out.println(Arrays.toString(files));
 	
-	// int postnum = Integer.parseInt(request.getParameter("postnum"));
-	int postnum = 1;
+	//int postnum = Integer.parseInt(request.getParameter("postnum"));
+	int postnum = 0;
+	out.println(postnum);
 	
 	ArrayList<PostimageVO> images = PosttblService.getInstance().selectByImages(postnum);
+	
 	//out.println(request.ContextPath());
-	//out.println(images.size());
 	//out.println(images);
     	
 	/* for(PostimageVO image : images) {
@@ -42,10 +43,11 @@ request.setCharacterEncoding("UTF-8");
 	
 	
 	PosttblVO vo = DetailService.getInstance().selectByContent(postnum);
-	// out.println(vo);
+	out.println(vo);
+	out.println(images);
 	request.setAttribute("vo", vo);
-	// request.setAttribute("files", files);
 	request.setAttribute("images", images);
+	// request.setAttribute("files", files);
 	pageContext.forward("detailPage.jsp");
 %>
 

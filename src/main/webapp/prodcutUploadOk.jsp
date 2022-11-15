@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.ojo.vo.CategoryVO"%>
 <%@page import="com.ojo.vo.PosttblVO"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
@@ -21,12 +23,15 @@
 	PostimageVO io = new PostimageVO();
 
 	MultipartRequest multipartRequest  = new MultipartRequest (
-		request, "E:/uploadImage/",
+		request, application.getRealPath("./uploadImages/"),
 		5 * 1024 * 1024 * 1024, "UTF-8",
 		new DefaultFileRenamePolicy()
 		);
 	
 	Enumeration filenames = multipartRequest.getFileNames();
+	
+	ArrayList<CategoryVO> category = service.selectByCategory();
+	out.println(category);
 	
 	String title = multipartRequest.getParameter("title").trim();
 	String postgu = multipartRequest.getParameter("postgu").trim();
@@ -54,7 +59,7 @@
 				continue;
 			}
 			
-			File realFilename = new File("E:/uploadImage" + fileRealname);
+			File realFilename = new File("./uploadImages/" + fileRealname);
 			long fileLength = realFilename.length();
 			if (fileLength > 5 * 1024 * 1024) {
 				out.println("<script>");
@@ -80,10 +85,14 @@
 			
 		}
 		
+		request.setAttribute("category", category);
+		request.setAttribute("vo", vo);
+		pageContext.forward("detailPage.jsp");
 		
-		/* out.println("<script>");
-		out.println("location.href='index.jsp'");
-		out.println("</script>"); */
+		/* 
+		out.println("<script>");
+		out.println("location.href='detail.jsp'");
+		out.println("</script>"); */ 
 %>
 </body>
 </html>
