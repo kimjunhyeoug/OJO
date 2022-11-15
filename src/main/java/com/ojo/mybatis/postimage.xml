@@ -4,11 +4,12 @@
 <select id="selectByImages" parameterType="int" resultType="io">
 	select * from postimage where postnum=#{postnum}
 </select>
-
-<insert id="insert" parameterType="io">
-	
+<insert id="uploadImage" parameterType="io">
+	insert into postimage(postnum, filename, filerealname, imagenum) 
+	values(#{postnum}, #{filename}, #{filerealname}, postimage_imagenum_seq.nextval)
 
 </insert>
+
 
 
 	

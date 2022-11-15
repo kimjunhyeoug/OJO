@@ -6,7 +6,12 @@
 	<select id="selectByContent" parameterType="int" resultType="po">
 		select * from posttbl where postnum = #{postnum}
 	</select>
-
+	
+	<insert id="upload" parameterType="com.ojo.vo.PosttblVO" >
+		insert into posttbl(postnum, postcontent, title, price, postgu, postdong, userid) 
+		values(posttbl_postnum_seq.nextval, #{postcontent}, #{title}, #{price}, #{postgu}, #{postdong}, #{userid})
+	
+	</insert>
 	
 </mapper>
 

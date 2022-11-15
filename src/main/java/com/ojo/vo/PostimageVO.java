@@ -5,7 +5,7 @@ public class PostimageVO {
 	private  int postnum;
 	private String filename;
 	private String filerealname;
-	private int idx;
+	private int imageNum;
 	
 	
 	public int getPostnum() {
@@ -27,15 +27,16 @@ public class PostimageVO {
 		this.filerealname = filerealname;
 	}
 	public int getIdx() {
-		return idx;
+		return imageNum;
 	}
 	public void setIdx(int idx) {
-		this.idx = idx;
+		this.imageNum = idx;
 	}
+	
 	@Override
 	public String toString() {
 		return "PostimageVO [postnum=" + postnum + ", filename=" + filename + ", filerealname=" + filerealname
-				+ ", idx=" + idx + "]";
+				+ ", imageNum=" + imageNum + "]";
 	}
 	
 	
