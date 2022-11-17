@@ -59,7 +59,7 @@ public class PosttblService {
 		System.out.println("PosttblService클래스 selectByCategory()메소드");
 		SqlSession mapper = MySession.getSession();
 		ArrayList<CategoryVO> list = PosttblDAO.getInstance().selectByCategory(mapper);
-		
+		System.out.println(list);
 		mapper.close();
 		System.out.println(list);
 		

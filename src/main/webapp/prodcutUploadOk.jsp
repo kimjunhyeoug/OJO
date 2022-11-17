@@ -21,7 +21,7 @@
 	PosttblService service = PosttblService.getInstance();
 	PosttblVO vo = new PosttblVO();
 	PostimageVO io = new PostimageVO();
-
+	
 	MultipartRequest multipartRequest  = new MultipartRequest (
 		request, application.getRealPath("./uploadImages/"),
 		5 * 1024 * 1024 * 1024, "UTF-8",
@@ -47,7 +47,6 @@
 	vo.setUserid(userid);
 	
 	service.upload(vo);
-
 		while (filenames.hasMoreElements()) { // 업로드 할 파일이 있는 동안 반복한다.
 			
 			String parameter = (String) filenames.nextElement();

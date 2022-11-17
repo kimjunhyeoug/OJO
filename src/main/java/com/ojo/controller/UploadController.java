@@ -34,7 +34,7 @@ public class UploadController extends HttpServlet {
 		String filename = request.getParameter("file"); // 업로드한 파일 이름
 		String fileRealname = request.getParameter("realfile"); // 실제 디스크에 업로드된 파일 이름
 		
-		String uploadDirectory = "E:/uploadImage/" + fileRealname;
+		String uploadDirectory = "./uploadImages/" + fileRealname;
 		File file = new File(uploadDirectory);
 		
 		String mimeType = getServletContext().getMimeType(file.toString());
