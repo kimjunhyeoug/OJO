@@ -11,6 +11,7 @@
 		<typeAlias type="com.ojo.vo.UsertblVO" alias="vo" />
 		<typeAlias type="com.ojo.vo.PosttblVO" alias="po" />
 		<typeAlias type="com.ojo.vo.PostimageVO" alias="io" />
+		<typeAlias type="com.ojo.vo.AddressVO" alias="ao" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -33,6 +34,7 @@
 		<mapper resource="com/ojo/mybatis/userhit.xml" />
 		<mapper resource="com/ojo/mybatis/userreply.xml" />
 		<mapper resource="com/ojo/mybatis/usertbl.xml" />
+		<mapper resource="com/ojo/mybatis/address.xml" />
 	</mappers>
 	
 </configuration>

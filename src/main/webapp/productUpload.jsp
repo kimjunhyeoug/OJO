@@ -1,3 +1,6 @@
+<%@page import="com.ojo.vo.AddressVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.ojo.service.AddressService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -7,11 +10,17 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 업로드</title>
-<script type="text/javascript" src="./js/prodcutUpload.js" defer="defer"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="./js/productUpload.js" defer="defer"></script>
 <link rel="stylesheet" href="./css/productUpload.css">
 </head>
 <body>
-	
+<%
+	ArrayList<AddressVO> guList = AddressService.getInstance().selectGu();
+	//out.println(guList);
+
+%>
+
 	<div class="menu">
 		
 	</div>
@@ -31,33 +40,36 @@
 				<tr>
 					<td align="center">주소</td>
 					<td align="center" width="170px">
-						<select name="postgu" style="width: 80px">
-							<option>종로구</option>
-							<option>중구</option>
-							<option>동대문구</option>
-							<option>서대문구</option>
+						<select id="postgu" name="postgu" style="width: 80px" onchange="select()">
+							<option>선택</option>
+							<%
+							for(AddressVO gulist : guList){
+							%>
+							<option><%=gulist.getGu() %> </option>
+							<%	
+							}
+							 %>
+							<%-- <c:forEach var="gu" items="${guList}">
+								<option>${gu.gu} </option>
+							</c:forEach> --%>
+							
 						</select>
-						<select name="postdong" style="width: 80px">
-							<option>관철동</option>
-							<option>익산동</option>
-							<option>명동</option>
-							<option>필동</option>
+						
+						<select id="postdong" name="postdong" style="width: 80px">
+						<option>선택</option>		
+						
 						</select>
 					</td>
-					<td align="center" width="80px"> 카테고리</td>
+					<td alisgn="center" width="80px"> 카테고리</td>
 					<td align="center" width="170">
 						<select name="category" style="width: 95%">
-							<option> == 선택하세요 ==</option>
+							<option>선택</option>
 							<option>가전</option>
 							<option>생활용품</option>
 							<option>식품</option>
 							<option>의류</option>
 							<option>기타</option>
-							<%-- 
-							<c:forEach var="category" items="${category.category}">
-								<option>${category.category}</option>
-							</c:forEach>
-							 --%>
+						
 						</select>
 					</td>
 				</tr>
@@ -112,7 +124,7 @@
 				</tr> -->
 				
 			</table>
-				<input type="hidden" name="userid"/>
+				<input type="type" name="userid"/>
 		</form>
 	
 	</div>
