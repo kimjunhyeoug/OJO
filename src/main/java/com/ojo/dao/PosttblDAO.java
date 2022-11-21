@@ -44,4 +44,10 @@ public class PosttblDAO {
 		return (ArrayList<CategoryVO>) mapper.selectList("selectByCategory");
 	}
 
+	public int selectByPostnum(SqlSession mapper) {
+		System.out.println("PosttblDAO클래스 selectByPostnum()메소드");
+				
+		return (int) mapper.selectOne("selectByPostnum");
+	}
+
 }

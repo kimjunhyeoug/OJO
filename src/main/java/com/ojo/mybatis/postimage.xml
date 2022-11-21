@@ -6,8 +6,7 @@
 </select>
 <insert id="uploadImage" parameterType="io">
 	insert into postimage(postnum, filename, filerealname, imagenum) 
-	values(
-	(select category from categorytbl), #{filename}, #{filerealname}, postimage_imagenum_seq.nextval)
+	values(#{postnum}, #{filename}, #{filerealname}, postimage_imagenum_seq.nextval)
 
 </insert>
 

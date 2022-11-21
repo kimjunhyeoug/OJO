@@ -13,11 +13,10 @@
  
 </head>
 <body>
-
-	<!-- 상단 메뉴 -->
 	<div class="menu">
 		
 	</div>
+
 	
 	<!-- <h2 style="text-align: center">상품 상세 이미지</h2> -->
 	

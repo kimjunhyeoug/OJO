@@ -21,8 +21,9 @@ request.setCharacterEncoding("UTF-8");
 	// String[] files = new File(uploadDirectory).list();
 	// out.println(Arrays.toString(files));
 	
-	//int postnum = Integer.parseInt(request.getParameter("postnum"));
-	int postnum = 0;
+	int postnum = (int)request.getAttribute("io");
+	
+	// int postnum = 1;
 	out.println(postnum);
 	
 	ArrayList<PostimageVO> images = PosttblService.getInstance().selectByImages(postnum);

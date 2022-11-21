@@ -19,8 +19,8 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	PosttblService service = PosttblService.getInstance();
-	PosttblVO vo = new PosttblVO();
 	PostimageVO io = new PostimageVO();
+	
 	
 	MultipartRequest multipartRequest  = new MultipartRequest (
 		request, application.getRealPath("./uploadImages/"),
@@ -30,8 +30,8 @@
 	
 	Enumeration filenames = multipartRequest.getFileNames();
 	
-	ArrayList<CategoryVO> category = service.selectByCategory();
-	out.println(category);
+	// ArrayList<CategoryVO> category = service.selectByCategory();
+	// out.println(category);
 	
 	String title = multipartRequest.getParameter("title").trim();
 	String postgu = multipartRequest.getParameter("postgu").trim();
@@ -39,14 +39,18 @@
 	int price = Integer.parseInt(multipartRequest.getParameter("price"));
 	String postcontent = multipartRequest.getParameter("postcontent").trim();
 	String userid = multipartRequest.getParameter("userid").trim();
+	int postnum = service.selectByPostnum();
+	
+	PosttblVO vo = new PosttblVO();
 	vo.setTitle(title);
 	vo.setPostgu(postgu);
 	vo.setPostdong(postdong);
 	vo.setPrice(price);
 	vo.setPostcontent(postcontent);
 	vo.setUserid(userid);
-	
+	vo.setPostnum(postnum);
 	service.upload(vo);
+	
 		while (filenames.hasMoreElements()) { // 업로드 할 파일이 있는 동안 반복한다.
 			
 			String parameter = (String) filenames.nextElement();
@@ -75,18 +79,20 @@
 				// out.println("alert('상품등록 완료.')");
 				// out.println("</script>");
 				
+				
 				io.setFilename(filename);
 				io.setFilerealname(fileRealname);
-				io.setPostnum(vo.getPostnum());
+				io.setPostnum(postnum+1);
 				//out.println(vo.toString());
 				service.uploadImage(io);
 			}
 			
 		}
 		
-		request.setAttribute("category", category);
+		// request.setAttribute("category", category);
 		request.setAttribute("vo", vo);
-		pageContext.forward("detailPage.jsp");
+		request.setAttribute("io", io.getPostnum());
+		pageContext.forward("detailPageOk.jsp");
 		
 		/* 
 		out.println("<script>");

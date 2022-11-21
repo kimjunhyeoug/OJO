@@ -17,6 +17,9 @@
 		select category from categorytbl
 	
 	</select>
+	<select id="selectByPostnum" resultType="int">
+		select count(*) from posttbl 
+	</select>
 	
 </mapper>
 

@@ -65,5 +65,17 @@ public class PosttblService {
 		
 		return list;
 	}
+	
+	public int selectByPostnum() {
+		System.out.println("PosttblService클래스 selectByPostnum()메소드");
+		SqlSession mapper = MySession.getSession();
+		
+		int postnumCount = PosttblDAO.getInstance().selectByPostnum(mapper);
+		System.out.println(postnumCount);
+		mapper.close();
+		return postnumCount;
+		
+		
+	}
 
 }
